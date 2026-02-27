@@ -42,6 +42,31 @@ body {
   z-index: 0;
 }
 
+/* Decorative radar in top-right, lighter grey, rotating sweep (~30% of viewport) */
+.radar-deco {
+  position: fixed;
+  top: -12%;
+  right: -12%;
+  width: 35vmax;
+  height: 35vmax;
+  min-width: 320px;
+  min-height: 320px;
+  color: #a0a0a0;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.radar-deco .radar-sweep {
+  transform-origin: 200px 200px;
+  animation: radar-sweep 20s linear infinite;
+}
+
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 .splash {
   position: relative;
   z-index: 1;
@@ -150,7 +175,7 @@ body {
   color: var(--text);
   background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 0;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -173,7 +198,7 @@ body {
   color: var(--bg-deep);
   background: var(--accent);
   border: none;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
