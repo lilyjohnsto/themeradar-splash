@@ -74,37 +74,47 @@ body {
 
 .logo {
   margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.logo-icon {
-  display: inline-block;
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-  animation: pulse 2s ease-in-out infinite;
+.logo-lockup {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
 }
 
-.logo h1 {
-  margin: 0;
-  font-size: clamp(2rem, 6vw, 3rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  font-family: "Playfair Display", serif;
+.logo-mark svg {
+  display: block;
+  width: clamp(48px, 10vw, 72px);
+  height: clamp(48px, 10vw, 72px);
+}
+
+.logo-wordmark {
+  line-height: 1;
   text-transform: none;
 }
 
-.logo-theme {
-  color: #ffffff;
+.logo-wordmark .logo-theme {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
 }
 
-.logo-radar {
-  color: #C9A84C;
+.logo-wordmark .logo-radar {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0.02em;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
+/* Shared logo wordmark colors (heading + footer) */
+.logo-theme { color: #ffffff; }
+.logo-radar { color: #C9A84C; }
 
 .tagline {
   margin: 0.5rem 0 0;
