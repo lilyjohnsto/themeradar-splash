@@ -29,7 +29,8 @@ body {
   color: var(--text);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 10vw;
   overflow-x: hidden;
 }
 
@@ -70,7 +71,7 @@ body {
 .splash {
   position: relative;
   z-index: 1;
-  text-align: center;
+  text-align: left;
   padding: 2rem;
   max-width: 52rem;
 }
@@ -101,7 +102,7 @@ body {
   margin-bottom: 2.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .logo-lockup {
@@ -113,19 +114,22 @@ body {
 
 .logo-mark svg {
   display: block;
-  width: 1em;
-  height: 1em;
+  width: clamp(2.31rem, 6.94vw, 3.47rem);
+  height: clamp(2.31rem, 6.94vw, 3.47rem);
   flex-shrink: 0;
 }
 
 .logo-wordmark {
   line-height: 1;
   text-transform: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo-wordmark .logo-theme {
   font-family: "Playfair Display", serif;
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(1.16rem, 3.47vw, 1.73rem);
   font-weight: 700;
   color: var(--text);
   letter-spacing: 0.02em;
@@ -133,7 +137,7 @@ body {
 
 .logo-wordmark .logo-radar {
   font-family: "Playfair Display", serif;
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(1.16rem, 3.47vw, 1.73rem);
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.02em;
@@ -144,10 +148,25 @@ body {
 .logo-radar { color: #C9A84C; }
 
 .tagline {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  font-weight: 300;
+  margin: 3rem 0 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
   color: var(--text-muted);
+  text-transform: none;
+  line-height: 1.2;
+}
+
+.tagline-line {
+  display: block;
+  margin-bottom: 0.09em;
+}
+.tagline-line:last-child {
+  margin-bottom: 0;
+}
+
+.tagline-accent {
+  color: var(--accent);
 }
 
 .coming-soon {
@@ -161,7 +180,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 3rem;
 }
 
