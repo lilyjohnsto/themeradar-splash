@@ -1,12 +1,12 @@
 /* ThemeRadar splash — minimal, radar-inspired */
 
 :root {
-  --bg-deep: #0a0e14;
-  --bg-card: #12171f;
-  --accent: #00d4aa;
-  --accent-dim: rgba(0, 212, 170, 0.4);
-  --text: #e6edf3;
-  --text-muted: #8b949e;
+  --bg-deep: #141414;
+  --bg-card: #1a1a1a;
+  --accent: #C9A84C;
+  --accent-dim: rgba(201, 168, 76, 0.35);
+  --text: #ffffff;
+  --text-muted: #a0a0a0;
 }
 
 *,
@@ -23,7 +23,8 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: "DM Sans", system-ui, sans-serif;
+  text-transform: uppercase;
   background: var(--bg-deep);
   color: var(--text);
   display: flex;
@@ -32,32 +33,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Radar-style background */
+/* Plain charcoal background */
 .radar-bg {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 50%, var(--accent-dim) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 70%);
+  background: var(--bg-deep);
   pointer-events: none;
   z-index: 0;
-}
-
-.radar-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-conic-gradient(
-    from 0deg at 50% 50%,
-    transparent 0deg 2deg,
-    rgba(0, 212, 170, 0.03) 2deg 4deg
-  );
-  animation: rotate-slow 60s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes rotate-slow {
-  to { transform: rotate(360deg); }
 }
 
 .splash {
@@ -66,6 +48,28 @@ body {
   text-align: center;
   padding: 2rem;
   max-width: 52rem;
+}
+
+/* Drop-in from top: each section appears in sequence */
+.splash > * {
+  opacity: 0;
+  animation: dropIn 0.5s ease-out forwards;
+}
+
+.splash > *:nth-child(1) { animation-delay: 0s; }
+.splash > *:nth-child(2) { animation-delay: 0.12s; }
+.splash > *:nth-child(3) { animation-delay: 0.24s; }
+.splash > *:nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .logo {
@@ -80,17 +84,26 @@ body {
   animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
 .logo h1 {
   margin: 0;
   font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text);
+  font-family: "Playfair Display", serif;
+  text-transform: none;
+}
+
+.logo-theme {
+  color: #ffffff;
+}
+
+.logo-radar {
+  color: #C9A84C;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
 
 .tagline {
@@ -121,6 +134,7 @@ body {
   padding: 0.75rem 1rem;
   font: inherit;
   font-size: 0.95rem;
+  text-transform: none;
   color: var(--text);
   background: var(--bg-card);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -140,9 +154,10 @@ body {
 
 .notify-form button {
   padding: 0.75rem 1.25rem;
-  font: inherit;
+  font-family: "DM Sans", system-ui, sans-serif;
   font-size: 0.95rem;
   font-weight: 500;
+  text-transform: uppercase;
   color: var(--bg-deep);
   background: var(--accent);
   border: none;
@@ -152,7 +167,7 @@ body {
 }
 
 .notify-form button:hover {
-  background: #00e6b8;
+  background: #d4b85c;
 }
 
 .notify-form button:active {
