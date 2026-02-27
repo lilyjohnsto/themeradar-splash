@@ -35,7 +35,8 @@
 
     <p class="coming-soon">Coming Soon</p>
 
-    <form class="notify-form" action="#" method="post" id="notify-form">
+    <form class="notify-form" action="#" method="post" id="notify-form" name="notify" data-netlify="true">
+      <input type="hidden" name="form-name" value="notify" />
       <label for="email" class="sr-only">Email for updates</label>
       <input
         type="email"

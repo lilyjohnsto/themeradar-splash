@@ -13,17 +13,25 @@
     var email = (input.value || "").trim();
     if (!email) return;
 
-    var originalText = btn.textContent;
     btn.disabled = true;
     btn.textContent = "Sending…";
 
-    // Replace with your real endpoint (e.g. form service or API)
-    // For now we just show success and reset
-    setTimeout(function () {
-      btn.textContent = "We'll be in touch.";
-      btn.style.background = "#8b949e";
-      input.value = "";
-      input.disabled = true;
-    }, 800);
+    var formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(function () {
+        btn.textContent = "We'll be in touch.";
+        btn.style.background = "#8b949e";
+        input.value = "";
+        input.disabled = true;
+      })
+      .catch(function () {
+        btn.textContent = "Notify Me";
+        btn.disabled = false;
+      });
   });
 })();
