@@ -160,6 +160,7 @@ body {
 .tagline-line {
   display: block;
   margin-bottom: 0.09em;
+  color: var(--text);
 }
 .tagline-line:last-child {
   margin-bottom: 0;
@@ -170,7 +171,7 @@ body {
 }
 
 .coming-soon {
-  font-size: calc(1rem + 1pt);
+  font-size: calc(1rem + 0.5pt);
   color: var(--text-muted);
   margin: 0 0 2rem;
 }
@@ -189,7 +190,7 @@ body {
   min-width: 12rem;
   padding: 0.75rem 1rem;
   font: inherit;
-  font-size: calc(1rem + 1pt);
+  font-size: calc(1rem + 0.5pt);
   text-transform: none;
   color: var(--text);
   background: var(--bg-card);
@@ -211,7 +212,7 @@ body {
 .notify-form button {
   padding: 0.75rem 1.25rem;
   font-family: "DM Sans", system-ui, sans-serif;
-  font-size: calc(1rem + 1pt);
+  font-size: calc(1rem + 0.5pt);
   font-weight: 500;
   text-transform: uppercase;
   color: var(--bg-deep);
